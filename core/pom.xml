@@ -28,6 +28,8 @@
     </dependencyManagement>
 
     <dependencies>
+
+    
         <!-- Spring Data Commons -->
         <dependency>
             <groupId>org.springframework.data</groupId>
