@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public record ProductUseCase(
     ProductCreateUseCase create,
-    ProductGetUseCase getByUuid
-
+    ProductGetUseCase getByUuid,
+    ProductDeleteUseCase delete
     ) {
     
 }

@@ -18,7 +18,7 @@ public class ProductGetUseCase {
     }
 
     public Product execute(UUID uuid) throws ProductNotFoundException {
-        return repository.findById(uuid).orElseThrow(() -> new ProductNotFoundException("Product not found with UUID: " + uuid));
+        return repository.findById(uuid).orElseThrow(() -> new ProductNotFoundException("Product not found with UUID: " + uuid.toString()));
     }
 
 }

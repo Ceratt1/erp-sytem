@@ -3,6 +3,7 @@ package br.com.erpsystem.products.api.controllers;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,12 @@ public class ProductController {
         return ProductMapper.toResponse(
             useCase.getByUuid().execute(uuidProduct)
         );
+    }
+
+    @DeleteMapping("/{uuidProduct}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteByUuid(@PathVariable UUID uuidProduct) {
+        useCase.delete().execute(uuidProduct);
     }
     
     
