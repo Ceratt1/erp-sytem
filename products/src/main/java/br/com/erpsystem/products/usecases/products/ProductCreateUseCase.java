@@ -2,7 +2,7 @@ package br.com.erpsystem.products.usecases.products;
 
 import org.springframework.stereotype.Service;
 
-import br.com.erpsystem.exceptions.DomainExcpetion;
+import br.com.erpsystem.exceptions.DomainException;
 import br.com.erpsystem.products.models.Product;
 import br.com.erpsystem.products.repositories.IProductRepository;
 
@@ -19,7 +19,7 @@ public class ProductCreateUseCase {
         try {
             return repository.save(product);
         } catch (Exception e) {
-            throw new DomainExcpetion("Error saving product: " + e.getMessage());
+            throw new DomainException("Error saving product: " + e.getMessage());
         }
     }
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erpsystem.exceptions.DomainExcpetion;
+import br.com.erpsystem.exceptions.DomainException;
 import br.com.erpsystem.products.api.dtos.product.ProductRequest;
 import br.com.erpsystem.products.api.dtos.product.ProductResponse;
 import br.com.erpsystem.products.api.mappers.ProductMapper;
@@ -34,7 +34,7 @@ public class ProductController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponse create(@RequestBody ProductRequest entity) throws DomainExcpetion {
+    public ProductResponse create(@RequestBody ProductRequest entity) throws DomainException {
         return ProductMapper.toResponse(
             useCase.create().execute(
                 ProductMapper.toDomain(entity)

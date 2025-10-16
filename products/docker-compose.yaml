@@ -7,4 +7,4 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
       MONGO_INITDB_DATABASE: product-service
     ports:
-      - 27017:27017
+      - 27272:27017
