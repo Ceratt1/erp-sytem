@@ -18,13 +18,10 @@ public class OrderDeleteUseCase {
     }
 
     private void validateIfExists(UUID uuid) {
-        repository.findById(uuid).orElseGet(
-            () -> {
-                throw new OrderNotFoundException("Order with id " + uuid + " not found");
-            }
-        );
+        if (repository.findById(uuid).isEmpty()) {
+            throw new OrderNotFoundException("Order with id " + uuid + " not found");
+        }
     }
-
 
     public void execute(UUID uuid) {
         validateIfExists(uuid);
