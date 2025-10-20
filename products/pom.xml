@@ -65,6 +65,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>bson</artifactId>
+		</dependency>
+
+
 	<!-- Core  -->
 		<dependency>
 			<groupId>br.com.erpsystem</groupId>
