@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import br.com.erpsystem.models.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,6 +30,7 @@ public class Order extends BaseEntity {
     
     @Column(name = "created_at", nullable = false, updatable = false)
     @Override
+    @CreatedDate
     public OffsetDateTime getCreatedAt() {
         return super.getCreatedAt();
     }

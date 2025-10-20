@@ -1,4 +1,4 @@
-package br.com.erpsystem.config.globalexception;
+package br.com.erpsystem.config;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
