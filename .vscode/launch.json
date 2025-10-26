@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InventoryApplication",
+            "request": "launch",
+            "mainClass": "br.com.erpsystem.inventory.InventoryApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ProductsApplication<products>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

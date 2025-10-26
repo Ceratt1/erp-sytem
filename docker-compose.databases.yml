@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  # Banco de dados para o serviço de Orders
+  postgres-orders:
+    image: postgres:latest
+    container_name: postgres-orders
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: order
+    ports:
+      - "5454:5432"
+    volumes:
+      - postgres-orders-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Banco de dados para o serviço de Inventory
+  postgres-inventory:
+    image: postgres:latest
+    container_name: postgres-inventory
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: inventory
+    ports:
+      - "5455:5432"
+    volumes:
+      - postgres-inventory-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Banco de dados para o serviço de Products
+  mongodb-products:
+    image: mongo:7.0.5
+    container_name: mongodb-products
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: product
+    ports:
+      - "27272:27017"
+    volumes:
+      - mongodb-products-data:/data/db
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-orders-data:
+    driver: local
+  postgres-inventory-data:
+    driver: local
+  mongodb-products-data:
+    driver: local
+
+networks:
+  microservices-network:
+    driver: bridge
