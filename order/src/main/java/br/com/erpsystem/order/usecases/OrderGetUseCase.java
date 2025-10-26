@@ -10,7 +10,6 @@ import br.com.erpsystem.order.repositories.IOrderRepository;
 @Service
 public class OrderGetUseCase {
 
-    
     private final IOrderRepository repository;
 
     public OrderGetUseCase(IOrderRepository repository) {

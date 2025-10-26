@@ -22,7 +22,7 @@ public class InventoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public boolean  getAll(@RequestParam @Valid String skuCode, @RequestParam @Valid Integer quantity) {
+    public boolean getAll(@RequestParam @Valid String skuCode, @RequestParam @Valid Integer quantity) {
         return useCase.get().existsBySkuCodeAndQuantityisGreaterThanEquals(skuCode, quantity);
     }
 
