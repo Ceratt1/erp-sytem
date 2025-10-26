@@ -1,6 +1,5 @@
-package br.com.erpsystem.order.models;
+package br.com.erpsystem.inventory.models;
 
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -13,15 +12,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
+
+
 @Entity
-@Table(name = "orders")
+@Table(name = "inventory")
 @Getter
 @Setter
-public class Order extends BaseEntity {
+public class Inventory extends BaseEntity {
     
     @Id
     @Column(name = "id", updatable = false, nullable = false)
@@ -37,17 +37,14 @@ public class Order extends BaseEntity {
     public OffsetDateTime getCreatedAt() {
         return super.getCreatedAt();
     }
-    
-    @Column(name = "order_number", nullable = false)
-    private String orderNumber;
-    
+        
     @Column(name = "sku_code", nullable = false)
     private String skuCode;
- 
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
- 
+    
     @Column(name = "quantity", nullable = false)
-    @Min(1)
+    
     private Integer quantity;
+
+    
+
 }

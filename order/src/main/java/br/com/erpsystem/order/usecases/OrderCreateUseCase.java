@@ -4,14 +4,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.erpsystem.exceptions.DomainException;
 import br.com.erpsystem.order.models.Order;
-import br.com.erpsystem.order.repositories.OrderRepository;
+import br.com.erpsystem.order.repositories.IOrderRepository;
 
 @Service
 public class OrderCreateUseCase {
     
-    private final OrderRepository repository;
+    private final IOrderRepository repository;
 
-    public OrderCreateUseCase(OrderRepository repository) {
+    public OrderCreateUseCase(IOrderRepository repository) {
         this.repository = repository;
     }
 

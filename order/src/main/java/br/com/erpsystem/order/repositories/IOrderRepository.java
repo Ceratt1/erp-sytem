@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import br.com.erpsystem.order.models.Order;
 
 @Repository
-public interface  OrderRepository extends JpaRepository<Order, UUID> {
+public interface  IOrderRepository extends JpaRepository<Order, UUID> {
     
 }

@@ -5,15 +5,15 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.erpsystem.order.models.Order;
-import br.com.erpsystem.order.repositories.OrderRepository;
+import br.com.erpsystem.order.repositories.IOrderRepository;
 
 @Service
 public class OrderGetUseCase {
 
     
-    private final OrderRepository repository;
+    private final IOrderRepository repository;
 
-    public OrderGetUseCase(OrderRepository repository) {
+    public OrderGetUseCase(IOrderRepository repository) {
         this.repository = repository;
     }
 

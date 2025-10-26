@@ -5,15 +5,15 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.erpsystem.order.exceptions.OrderNotFoundException;
-import br.com.erpsystem.order.repositories.OrderRepository;
+import br.com.erpsystem.order.repositories.IOrderRepository;
 
 @Service
 public class OrderDeleteUseCase {
     
 
-    private final OrderRepository repository;
+    private final IOrderRepository repository;
 
-    public OrderDeleteUseCase(OrderRepository repository) {
+    public OrderDeleteUseCase(IOrderRepository repository) {
         this.repository = repository;
     }
 
