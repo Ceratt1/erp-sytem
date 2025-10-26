@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,10 +38,7 @@ public class Order extends BaseEntity {
     public OffsetDateTime getCreatedAt() {
         return super.getCreatedAt();
     }
-    
-    @Column(name = "order_number", nullable = false)
-    private String orderNumber;
-    
+
     @Column(name = "sku_code", nullable = false)
     private String skuCode;
  
@@ -50,4 +48,7 @@ public class Order extends BaseEntity {
     @Column(name = "quantity", nullable = false)
     @Min(1)
     private Integer quantity;
+
+    @Transient
+    private UUID productId;
 }

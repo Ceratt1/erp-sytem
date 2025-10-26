@@ -1,5 +1,6 @@
 package br.com.erpsystem.order.usecases;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -16,10 +17,13 @@ public class OrderGetUseCase {
         this.repository = repository;
     }
 
-    public Order byId(UUID uuid) {
+    public Order execute(UUID uuid) {
         return repository.findById(uuid).orElseThrow();
     }
 
+    public List<Order> execute() {
+        return repository.findAll();
+    }
 
 
 
