@@ -1,5 +1,7 @@
 package br.com.erpsystem.products.api.mappers;
 
+import java.util.List;
+
 import br.com.erpsystem.products.api.dtos.product.ProductRequest;
 import br.com.erpsystem.products.api.dtos.product.ProductResponse;
 import br.com.erpsystem.products.models.Product;
@@ -12,6 +14,11 @@ public class ProductMapper {
             .setDescription(request.description().orElse(null))
             .setPrice(request.price());
         return product;
+    }
+
+
+    public static List<ProductResponse> toResponse(List<Product> products) {
+        return products.stream().map(ProductMapper::toResponse).toList();
     }
 
     public static ProductResponse toResponse(Product product) {

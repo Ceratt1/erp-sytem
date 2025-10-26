@@ -1,5 +1,6 @@
 package br.com.erpsystem.products.api.controllers;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,6 @@ public class ProductController {
         this.useCase = useCase;
     }
 
-
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ProductResponse create(@RequestBody ProductRequest entity) throws DomainException {
@@ -41,6 +41,14 @@ public class ProductController {
             )
         );        
     }
+
+    @GetMapping()
+    public List<ProductResponse> getAll() {
+        return ProductMapper.toResponse(
+            useCase.getAll().execute()
+        );
+    }
+
 
     @GetMapping("/{uuidProduct}")
     public ProductResponse getByUuid(@PathVariable UUID uuidProduct) throws ProductNotFoundException {

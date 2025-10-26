@@ -1,5 +1,6 @@
 package br.com.erpsystem.products.usecases.products;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +16,11 @@ public class ProductGetUseCase {
 
     public ProductGetUseCase(IProductRepository repository) {
         this.repository = repository;
+    }
+
+
+    public List<Product> execute() {
+        return repository.findAll();
     }
 
     public Product execute(UUID uuid) throws ProductNotFoundException {
