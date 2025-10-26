@@ -8,8 +8,6 @@ import org.springframework.data.annotation.CreatedDate;
 import br.com.erpsystem.models.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -26,7 +24,6 @@ public class Inventory extends BaseEntity {
     @Id
     @Column(name = "id", updatable = false, nullable = false)
     @Override
-    @GeneratedValue(strategy= GenerationType.UUID)
     public UUID getId() {
         return super.getId();
     }

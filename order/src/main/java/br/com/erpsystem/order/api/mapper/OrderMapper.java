@@ -19,11 +19,11 @@ public class OrderMapper {
 
     public static OrderResponse toResponse(Order request) {
         OrderResponse order = new OrderResponse();
-        order.setId(order.getId());
-        order.setCreatedAt(order.getCreatedAt());
-        order.setSkuCode(order.getSkuCode());
-        order.setPrice(order.getPrice());
-        order.setQuantity(order.getQuantity());
+        order.setId(request.getId());
+        order.setCreatedAt(request.getCreatedAt());
+        order.setSkuCode(request.getSkuCode());
+        order.setPrice(request.getPrice());
+        order.setQuantity(request.getQuantity());
         return order;
     }
 

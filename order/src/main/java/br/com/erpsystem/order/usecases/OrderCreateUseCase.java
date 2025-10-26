@@ -40,8 +40,8 @@ public class OrderCreateUseCase {
     }
 
     public Order execute(Order order) {
-        validateInventory(order.getSkuCode(), order.getQuantity());
         ProductClientResponse productResponse = productClientService.findById(order.getProductId());
+        validateInventory(productResponse.getName(), order.getQuantity());
         BigDecimal totalPrice = productResponse.getPrice().multiply(new BigDecimal(order.getQuantity()));
         order.setSkuCode(productResponse.getName());
         order.setPrice(totalPrice);

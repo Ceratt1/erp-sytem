@@ -2,11 +2,9 @@ package br.com.erpsystem.order.clients.inventory.service.impl;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 import org.springframework.stereotype.Service;
@@ -26,8 +24,7 @@ public class InventoryClientServiceImpl implements IInventoryClientService {
     }
 
     private String buildUrl(String skuCode, Integer quantity) {
-        String encodedSkuCode = URLEncoder.encode(skuCode, StandardCharsets.UTF_8);
-        return String.format("%s?skuCode=%s&quantity=%d", BASE_URL, encodedSkuCode, quantity);
+        return String.format("%s?skuCode=%s&quantity=%d", BASE_URL, skuCode, quantity);
     }
 
     private HttpRequest buildRequest(String skuCode, Integer quantity) {
